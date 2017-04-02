@@ -158,7 +158,7 @@ def user_profile(request):
 
 def address(request):
     try:
-        UA=UserAddress.objects.filter(email_id=request.user.id)
+        UA=UserAddress.objects.filter(email_id=request.user.id,is_active_flag=1)
     except UserAddress.DoesNotExist:
         raise Http404("No MyModel matches the given query.")
     return render(request,'user_management/address.html',{'UA':UA})
@@ -195,9 +195,7 @@ def edit_address(request,id):
     instance=UserAddress.objects.get(id=id)
     form=add_address_form(request.POST or None,instance=instance)
     if request.method=="POST":
-        print form
         if form.is_valid():
-            print "form is valid"
             instance=form.save(commit=False)
             instance.save()
             return HttpResponseRedirect('/address/')
@@ -208,6 +206,9 @@ def edit_address(request,id):
 
 def delete_address(request,id):
     instance=UserAddress.objects.get(id=id)
+    instance.is_active_flag=0
+    instance.save()
+    return HttpResponseRedirect('/address/')
 
 def change_password(request):
     print request.path

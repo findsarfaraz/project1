@@ -23,5 +23,6 @@ urlpatterns =   [
                 url(r'^change_password/',change_password,name='change_password'),
                 url(r'^add_address/',add_address,name='add_address'),
                 url(r'^edit_address/(?P<id>\d+)',edit_address,name='edit_address'),
+                url(r'^delete_address/(?P<id>\d+)',delete_address,name='delete_address'),
                 url(r'^email_test/',email_test,name='email_test'),
                 ]

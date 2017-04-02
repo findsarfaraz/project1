@@ -48,7 +48,7 @@
                     <a href={% url 'user_management:edit_address'  address.id %}>
                     <i class="fa fa-pencil-square fa-inverse fa-2x" aria-hidden="true"></i>
                     </a>
-                    <a href="#">
+                    <a href={% url 'user_management:delete_address'  address.id %}>
                     <i class="fa fa-trash fa-inverse fa-2x" aria-hidden="true"></i>
                     </a>
                     </div>
