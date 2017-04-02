@@ -1,0 +1,85 @@
+
+<div class="row">
+
+<div class="navbar-fixed">
+    <nav class="amber darken-4">
+        <div class="nav-wrapper">
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="brand-logo">Arham Collections</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Wish List">
+                    <i class="fa fa-list-ol fa-1x fa-inverse" aria-hidden="true"></i>
+                     <span class="badge white">
+                    <span class="orange-text text-darken-2">
+                        <b>0 item </b>
+                    </span>
+                    </span>
+                    </a>
+                </li>
+                <li><a href="#modal1" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Shopping Cart">
+                        <i class="fa fa-cart-arrow-down fa-1x fa-inverse" aria-hidden="true">
+                        </i>
+                        <span class="badge white">
+                            <span class="orange-text text-darken-2">
+                                <b>0 item </b>
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                {% if user.is_authenticated  %}
+                <li><a class='dropdown-button' data-beloworigin="true" href="#" data-activates='loggedin'><i class="fa fa-user-circle fa-1x fa-inverse" aria-hidden="true"></i>&nbsp;&nbsp;<b>{{user.get_full_name}}
+                </b></a></li>
+                    <ul id='loggedin' class='dropdown-content'>
+                        {% if user.is_superuser %}
+                        <li><a href="#">Reports</a></li>
+                        <li><a href="#">User Managment</a></li>
+                        {%endif%}
+                        {% if user.is_staff %}
+                        <li><a href="#">Order Management</a></li>
+                        <li><a href="#">Product Management</a></li>
+                        {%endif%}
+                        <li><a href="#">Orders</a></li>
+                        <li><a href="{%url 'user_management:account_info'%}">Account</a></li>
+                        <li><a href="{%url 'user_management:logout'%}">Logout</a></li>
+                    </ul>
+                {% else %}
+                <li><a href="{%url 'user_management:login'%}"><i class="fa fa-user-circle fa-1x fa-inverse" aria-hidden="true"></i>&nbsp;&nbsp;<b>Login 
+                </b></a></li>
+                {%endif%}
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="{%url 'user_management:login'%}"><i class="fa fa-user-circle fa-1x fa-inverse" aria-hidden="true"></i><b>Login</b></a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+
+<nav class= "red darken-1">
+    <div class="nav-wrapper">
+           
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+            <li><a class='dropdown-button' data-beloworigin="true" href='#' data-activates='fashion'>Fashion</a></li>
+                <ul id='fashion' class='dropdown-content'>
+                    <li><a href="#!">Party Wear</a></li>
+                    <li><a href="#!">Pakistani Suits</a></li>
+                    <li><a href="#!">Bridal</a></li>
+                </ul>
+            <li><a href="#">Jewellery</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="{%url 'main_app:aboutus'%}">About Us</a></li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+                <li><a class='dropdown-button' data-beloworigin="true" href='#' data-activates='contactus'><b>Customer Care</b></a></li>
+                    <ul id='contactus' class='dropdown-content'>
+                       <li><a href="{%url 'main_app:callus'%}"><i class="fa fa-phone-square fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Call us</a></li>
+                       <li><a href="{%url 'main_app:emailus'%}"><i class="fa fa-envelope fa-1x" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Email Us</a></li>
+                    </ul>
+        </ul>
+    </div>
+</nav>
+</div>
+
+
+

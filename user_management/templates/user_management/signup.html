@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{%block content%}
+<div class="row">
+    <h4>
+        Welcome to Arham collections family
+    </h4>
+    <div class="divider"></div>
+    <h5>
+        Sign up here
+    </h5>
+</div>
+<div class="divider"></div>           
+
+
+<div class="row">
+    <div class="col l4 m8 s12">
+        <form action="/signup/" class="col s12"  method="post">{% csrf_token %}
+        {% if form.errors %}
+            {% for error in form.non_field_errors %}
+                <div class='alert-message alert-message-danger'>{{ error }}</div>
+            {% endfor %}
+    
+        {% endif %}
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="{{form.field.email}}" type="email" class="validate" name="email">
+                    <label for={{form.email.id_for_label}}>Email</label>
+                </div>
+            </div>
+            {%if form.field.email.errors%}
+            <div class='alert-message alert-message-danger'>{{form.email.errors}}</div>
+            {%endif%}
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="{{form.field.password1}}"  type="password" class="validate" name="password1">
+                    <label for="{{form.password1.id_for_label}}">Choose Password</label>
+                </div>
+            </div>
+            {%if form.password1.errors%}
+            <div class='alert-message alert-message-danger'>{{form.password1.errors}}</div>
+            {%endif%}
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="{{form.field.password2}}"  type="password" class="validate" name="password2">
+                    <label for="{{form.password2.id_for_label}}">Confirm Password</label>
+                </div>
+            </div>
+            {%if form.field.password2.errors%}
+            <div class='alert-message alert-message-danger'>{{form.password2.errors}}</div>
+            {%endif%}
+
+            <button class="btn waves-effect waves-light" type="submit" name="action">Register</button>
+        </form>
+    </div>
+</div>           
+{%endblock%}

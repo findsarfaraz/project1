@@ -1,0 +1,95 @@
+{% load staticfiles %}
+<!doctype html>
+
+<html lang="en">
+<head>
+
+    <title>
+        {% block title %}
+            Arham Collections
+        {% endblock%}
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    {%block stylesheets%}
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/custom.css' %}" media="screen,projection"/>     
+    {% endblock %}
+    
+    {% block topjavascript %}
+    {% endblock%}
+</head>
+<body>
+
+
+    {% include "main_app/navbar.html" %}
+    <!--{% include "main_app/wishlist.html" %}-->
+    <div class="container-fluid">
+        {% include "main_app\cart.html" %}
+        {%block content%}
+        
+        {%endblock%}
+        </div>
+    <div class="section">
+    {% include "main_app/footer.html" %}
+    </div>
+    {% block javascript %}
+    <script type="text/javascript" src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+  <!--  <script type="text/javascript" src="{% static 'js/material-scrolltop.js' %}"></script>-->
+<!--    <script>$(".button-collapse").sideNav(); </script>-->
+    <script>
+        (function($) {
+            $(function() {
+        
+        $('.dropdown-button').dropdown({
+              inDuration: 300,
+              outDuration: 225,
+              hover: true, // Activate on hover
+              belowOrigin: true, // Displays dropdown below the button
+              alignment: 'left' // Displays dropdown with edge aligned to the left of button
+            }
+          );
+        
+                        }); // End Document Ready
+        })(jQuery); // End of jQuery name space
+    </script>
+    <script>
+         $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal').modal();
+      });
+              
+    </script>
+    <script>
+          // Initialize collapse button
+       $('.button-collapse').sideNav({
+      menuWidth: 300, // Default is 300
+      edge: 'left', // Choose the horizontal origin
+      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      draggable: true // Choose whether you can drag to open on touch screens
+    }
+  );
+    </script>
+<script>
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 100,// Creates a dropdown of 15 years to control year
+    format: 'yyyy-mm-dd' 
+  });
+</script>
+<script>
+    $(document).ready(function() {
+    $('select').material_select();
+  });
+          
+</script>
+
+    {% endblock %}
+    
+   
+</body>
+</html>
+

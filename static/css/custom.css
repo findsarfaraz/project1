@@ -1,0 +1,122 @@
+.red.darken-1 {
+    line-height: 40px;
+    height: 40px;
+}
+
+
+
+.red.darken-1 li:hover > a {
+   background-color: #e0e0e0;
+   color:#000000;
+}
+
+
+.red.darken-1 .dropdown-content li:hover > a  {
+    background-color:  #c5cae9;
+   
+}
+
+
+.red.darken-1 .dropdown-content li > a  {
+    color:  Black;
+   
+}
+
+.dropdown-content li > a  {
+    color:  Black;
+}
+
+.dropdown-content li:hover > a {
+   background-color: #c5cae9;
+   color:#000000;
+}
+
+.dropdown-content   {
+        background-color: #FFFFFF;
+        margin: 0;
+        display: none;
+        min-width: 200px; /* Changed this to accomodate content width */
+        margin-left: -1px; /* Add this to keep dropdown in line with edge of navbar */
+        overflow: hidden; /* Changed this from overflow-y:auto; to overflow:hidden; */
+        opacity: 0;
+        position: absolute;
+        white-space: nowrap;
+        z-index: 1;
+        will-change: width, height;
+}
+
+.btn {
+    background-color:  #ff6f00;
+    
+}
+
+
+.btn-large {
+    background-color:  #ff6f00;
+    
+}
+
+
+.btn:hover, .btn-large:hover {
+    background-color: #283593;
+}
+.btn:focus, .btn-large:focus {
+    background-color: #283593;
+}
+
+h5 {
+    color: #ff6f00;
+}
+
+nav .brand-logo {
+   font-family: Mr Dafoe;
+   font-stretch:ultra-expanded;
+}
+
+
+.fa.fa-whatsapp.fa-3x.fa-inverse
+, .fa.fa-instagram.fa-3x.fa-inverse
+, .fa.fa-twitter-square.fa-3x.fa-inverse
+, .fa.fa-pinterest-square.fa-3x.fa-inverse
+, .fa.fa-linkedin-square.fa-3x.fa-inverse   {
+    padding-left: 10px
+}
+
+.fa.fa-facebook-official.fa-3x.fa-inverse:hover
+,.fa.fa-whatsapp.fa-3x.fa-inverse:hover
+, .fa.fa-instagram.fa-3x.fa-inverse:hover
+, .fa.fa-twitter-square.fa-3x.fa-inverse:hover
+, .fa.fa-pinterest-square.fa-3x.fa-inverse:hover
+, .fa.fa-linkedin-square.fa-3x.fa-inverse:hover   {
+    color: #ff6f00;
+}
+
+
+.alert-message
+{
+    margin: 20px 0;
+    padding: 20px;
+    border-left: 3px solid #eee;
+}
+
+.alert-message-danger   {
+    background-color: #fdf7f7;
+    border-color: #d9534f;
+    color: Red;
+    }
+    
+.alert-message-success
+{
+    background-color: #F4FDF0;
+    border-color: #3C763D;
+    color: Green;
+}
+
+
+
+.collection .collection-item.active {
+        background-color: #283593;
+}
+
+
+
