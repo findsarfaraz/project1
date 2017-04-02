@@ -206,6 +206,8 @@ def edit_address(request,id):
     else:
         return render(request,'user_management/edit_address.html',{'form':form})
 
+def delete_address(request,id):
+    instance=UserAddress.objects.get(id=id)
 
 def change_password(request):
     print request.path
