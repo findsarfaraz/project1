@@ -194,6 +194,7 @@ def add_address(request):
 def edit_address(request,id):
     instance=UserAddress.objects.get(id=id)
     form=add_address_form(request.POST or None,instance=instance)
+    print form
     if request.method=="POST":
         if form.is_valid():
             instance=form.save(commit=False)

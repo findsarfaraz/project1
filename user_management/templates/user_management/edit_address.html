@@ -1,14 +1,40 @@
 {% extends "base.html"%}
 {%block content%}
 <div class="row">
-    <div class="col s12 m5 l5">
- 
-                <form action="" class="col s12"  method="post">{% csrf_token %}
+    <div class="col s12 m4 l3">
+
+        <ul class="collection">
+            
+             <li class="collection-item avatar red darken-1">
+             <img src="https://scontent.fbom2-1.fna.fbcdn.net/v/t1.0-1/p160x160/44250_10151096687507919_1754787046_n.jpg?oh=2850aae2f045740eb2f1ab79a30908a4&oe=596D7E09" alt="" class="circle">
+             <a href="#" class="white-text"><b>Sarfaraz Ahmed</b></a>
+
+             </li>
+
+            <a href="{%url 'user_management:account_info'%}"><li class="collection-item" >Profile</li></a>
+            <a href="{%url 'user_management:address'%}"><li class="collection-item active">Address</li></a>
+            <a href="#"><li class="collection-item">Orders</li> </a>
+            <a href="#"><li class="collection-item">Purchase History</li></a>
+            <a href="{%url 'user_management:change_password'%}"><li class="collection-item">Change Password</li></a>
+        </ul>
+    </div>
+
+    <div class="col s12 m8 l9">
+        <div class="row">
+            <div class="col s12 m4 l3">
+                <h5>Edit Address</h5>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="row">
+             <div class="col s12 m6 l5">
+                <form action="" class="col s12"  method="POST">{% csrf_token %}
+                
                 {% if form.errors %}
                     {% for field in form %}
                         {% for error in field.errors %}
                             <div class="alert alert-danger">
-                                <strong>{{error}}</strong>
+                                <strong>{{ error}}</strong>
                             </div>
                         {% endfor %}
                     {% endfor %}
@@ -19,16 +45,100 @@
                     {% endfor %}
                 
                 {% endif %}
-                
-                    {{form}}
+                                
+                {% if form.errors %}
+                    {% for error in form.non_field_errors %}
+                        <div class='alert-message alert-message-danger'>{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="id_address_contact" type="text"  name="address_contact" value={{form.address_contact.value}}>
+                        <label for="id_address_contact">Address Contact</label>
+                    </div>
+                </div>
+                {%if form.field.address_contact.errors%}
+                    <div class='alert-message alert-message-danger'>{{form.address_contact.errors}}</div>
+                {%endif%}
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="id_address_line1" type="text"  name="address_line1" value={{form.address_line1.value}}>
+                        <input id="id_address_line2" type="text"  name="address_line2" value={{form.address_line2.value}}>
+                        <label for="id_address_line1">Address</label>
+                    </div>
+                </div>
+                {%if form.field.address_line1.errors %}
+                    <div class='alert-message alert-message-danger'>{{form.address_line1.errors}}</div>
+                {%endif%}
+                {%if form.field.address_line2.errors %}
+                    <div class='alert-message alert-message-danger'>{{form.address_line2.errors}}</div>
+                {%endif%}
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="id_land_mark" type="text"  name="land_mark" value={{form.land_mark.value}}>
+                        <label for="id_land_mark">Land Mark</label>
+                    </div>
+                </div>
+                {%if form.field.land_mark.errors %}
+                    <div class='alert-message alert-message-danger'>{{form.land_mark.errors}}</div>
+                {%endif%}
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="id_state" type="text"  name="state" value={{form.state.value}}>
+                        <label for="id_state"}>State</label>
+                    </div>
+                </div>
+                {%if form.field.state.errors %}
+                    <div class='alert-message alert-message-danger'>{{form.state.errors}}</div>
+                {%endif%}
                
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="id_city" type="text"  name="city" value={{form.city.value}}>
+                        <label for="id_city">City</label>
+                    </div>
+                </div>
+                {%if form.field.state.errors %}
+                    <div class='alert-message alert-message-danger'>{{form.city.errors}}</div>
+                {%endif%}
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="id_pin_code" type="text"  name="pin_code" value={{form.pin_code.value}}>
+                        <label for="id_pin_code">Pin Code</label>
+                    </div>
+                </div>
+                {%if form.field.pin_code.errors %}
+                    <div class='alert-message alert-message-danger'>{{form.pin_code.errors}}</div>
+                {%endif%}
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="id_mobile_no" type="text"  name="mobile_no" value={{form.mobile_no.value}}>
+                        <label for="id_mobile_no">Mobile No</label>
+                    </div>
+                </div>
+                {%if form.field.mobile_no.errors %}
+                    <div class='alert-message alert-message-danger'>{{form.mobile_no.errors}}</div>
+                {%endif%}
+                <div class="row">
+                    <div class="col s12">
+                        <p>
+                        <input type="checkbox" id="id_is_primary" name="is_primary"/>
+                        <label for="id_is_primary">Primary Address</label>
+                        </p>
+                    </div>
+                </div>
+                
+                {%if form.field.is_primary.errors %}
+                    <div class='alert-message alert-message-danger'>{{form.is_primary.errors}}</div>
+                {%endif%}
                 <div class="row">
                     <button class="btn waves-effect waves-light" type="submit" name="action">Save</button>
                 </div>
-
                 </form>
+             </div>
+        </div>
     </div>
-
 </div>
 {%endblock%}
 
