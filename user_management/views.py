@@ -180,7 +180,7 @@ def add_address(request):
             is_primary = form.cleaned_data['is_primary']
             
             if is_primary:
-                UA=UserAddress.objects.filter(email_id = request.user.id , is_active=1 ).update(is_primary=0)
+                UA=UserAddress.objects.filter(email_id = request.user.id , is_active_flag=1 ).update(is_primary=0)
                 
                 
             U = UserAddress.objects.create(address_contact=form.cleaned_data['address_contact'],
@@ -210,6 +210,10 @@ def edit_address(request,id):
     if request.method=="POST":
         
         if form.is_valid():
+            is_primary = form.cleaned_data['is_primary']
+            
+            if is_primary:
+                UA=UserAddress.objects.filter(email_id = request.user.id , is_active_flag=1 ).update(is_primary=0)
             instance=form.save(commit=False)
             instance.save()
             return HttpResponseRedirect('/address/')

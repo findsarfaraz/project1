@@ -36,7 +36,7 @@
             <div class="row">
                 {% for address in UA%}
                  <div class="col s12 m4 l3">
-                    <div class="card indigo darken-3 darken-1">
+                    <div class="card {%if address.is_primary%} {{'orange darken-1'}} {%endif%} indigo darken-3 darken-1" >
                         <div class="card-content white-text">
                             <span class="card-title">{{address.address_contact}}</span>
                             <p>{{address.address_line1}}

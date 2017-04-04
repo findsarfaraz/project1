@@ -122,7 +122,7 @@
                 <div class="row">
                     <div class="col s12">
                         <p>
-                        <input type="checkbox" id="id_is_primary" name="is_primary"/>
+                        <input type="checkbox" id="id_is_primary" name="is_primary" {%if form.is_primary.value%}{{'checked'}}{%endif%}/>
                         <label for="id_is_primary">Primary Address</label>
                         </p>
                     </div>
