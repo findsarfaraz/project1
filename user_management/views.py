@@ -161,6 +161,8 @@ def address(request):
         UA=UserAddress.objects.filter(email_id=request.user.id,is_active_flag=1)
     except UserAddress.DoesNotExist:
         raise Http404("No MyModel matches the given query.")
+    row={}
+    
     return render(request,'user_management/address.html',{'UA':UA})
 
 @login_required(login_url='user_management:login')

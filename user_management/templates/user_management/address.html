@@ -31,31 +31,31 @@
             </div>
         </div>
         <div class="divider"></div>
-         <div class="row">
-            {% for address in UA%}
-            <div class="col s12 m4 l3">
-                <div class="card indigo darken-3 darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">{{address.address_contact}}</span>
-                        <p>{{address.address_line1}}
-                        {{address.address_line2}}
-                        {{address.city}}
-                        {{address.state}}
-                         {{address.pin_code}}</p>
-                         <p>{{address.mobile_no}}</p>
-                    </div>
-                    <div class="card-action">
-                    <a href={% url 'user_management:edit_address'  address.id %}>
-                    <i class="fa fa-pencil-square fa-inverse fa-2x" aria-hidden="true"></i>
-                    </a>
-                    <a href={% url 'user_management:delete_address'  address.id %}>
-                    <i class="fa fa-trash fa-inverse fa-2x" aria-hidden="true"></i>
-                    </a>
+        {% for address in UA%}
+            <div class="row">
+                 <div class="col s12 m4 l3">
+                    <div class="card indigo darken-3 darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">{{i}}{{address.address_contact}}</span>
+                            <p>{{address.address_line1}}
+                            {{address.address_line2}}
+                            {{address.city}}
+                            {{address.state}}
+                             {{address.pin_code}}</p>
+                             <p>{{address.mobile_no}}</p>
+                        </div>
+                        <div class="card-action">
+                        <a href={% url 'user_management:edit_address'  address.id %}>
+                        <i class="fa fa-pencil-square fa-inverse fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href={% url 'user_management:delete_address'  address.id %}>
+                        <i class="fa fa-trash fa-inverse fa-2x" aria-hidden="true"></i>
+                        </a>
+                        </div>
                     </div>
                 </div>
             </div>
-            {% endfor %}
-        </div>
+         {% endfor %} 
     </div>
 </div>
 {%endblock%}
