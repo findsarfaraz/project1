@@ -161,19 +161,28 @@ def address(request):
         UA=UserAddress.objects.filter(email_id=request.user.id,is_active_flag=1)
     except UserAddress.DoesNotExist:
         raise Http404("No MyModel matches the given query.")
-    row={}
     
+    i=1        
+    for address in UA:
+        address.row_id =i
+        i=i+1
     return render(request,'user_management/address.html',{'UA':UA})
 
 @login_required(login_url='user_management:login')
 @csrf_protect
 def add_address(request):
     form=add_address_form(request.POST or None)
-
+    
     if request.method=="POST":
-        print form.data
+
         if form.is_valid():
             form.save(commit=False)
+            is_primary = form.cleaned_data['is_primary']
+            
+            if is_primary:
+                UA=UserAddress.objects.filter(email_id = request.user.id , is_active=1 ).update(is_primary=0)
+                
+                
             U = UserAddress.objects.create(address_contact=form.cleaned_data['address_contact'],
                             address_line1=form.cleaned_data['address_line1'],
                             address_line2=form.cleaned_data['address_line2'],
@@ -182,6 +191,7 @@ def add_address(request):
                             state=form.cleaned_data['state'],
                             pin_code=form.cleaned_data['pin_code'],
                             mobile_no=form.cleaned_data['mobile_no'],
+                            is_primary=form.cleaned_data['is_primary'],
                             email_id=request.user.id)
             U.save()
             return HttpResponseRedirect('/address/')
@@ -196,8 +206,9 @@ def add_address(request):
 def edit_address(request,id):
     instance=UserAddress.objects.get(id=id)
     form=add_address_form(request.POST or None,instance=instance)
-    print form
+    
     if request.method=="POST":
+        
         if form.is_valid():
             instance=form.save(commit=False)
             instance.save()
@@ -208,6 +219,7 @@ def edit_address(request,id):
         return render(request,'user_management/edit_address.html',{'form':form})
 
 def delete_address(request,id):
+    
     instance=UserAddress.objects.get(id=id)
     instance.is_active_flag=0
     instance.save()

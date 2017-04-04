@@ -91,12 +91,7 @@
                 {%if form.field.state.errors %}
                     <div class='alert-message alert-message-danger'>{{form.state.errors}}</div>
                 {%endif%}
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="id_pin_code" type="text"  name="pin_code">
-                        <label for="id_pin_code">Pin Code</label>
-                    </div>
-                </div>
+              
                 {%if form.field.state.errors %}
                     <div class='alert-message alert-message-danger'>{{form.city.errors}}</div>
                 {%endif%}
@@ -109,6 +104,14 @@
                 {%if form.field.pin_code.errors %}
                     <div class='alert-message alert-message-danger'>{{form.pin_code.errors}}</div>
                 {%endif%}
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="id_pin_code" type="text"  name="pin_code">
+                        <label for="id_pin_code">Pin Code</label>
+                    </div>
+                </div>
+                
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="id_mobile_no" type="text"  name="mobile_no">
