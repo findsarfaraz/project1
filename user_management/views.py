@@ -12,7 +12,8 @@ from django.shortcuts import get_object_or_404
 from django.template import Context
  
 
-
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 
 import hashlib
 import random
@@ -229,6 +230,18 @@ def delete_address(request,id):
     instance.save()
     return HttpResponseRedirect('/address/')
 
+
+@login_required(login_url='user_management:login')
+@csrf_protect
 def change_password(request):
-    print request.path
-    return render(request,'user_management/change_password.html',None)
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            print form
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            return render(request,'user_management/change_password_done.html',None)    
+        return render(request,'user_management/change_password.html',{'form': form})            
+    else:
+        form = PasswordChangeForm(request.user)
+        return render(request, 'user_management/change_password.html', {'form': form})
