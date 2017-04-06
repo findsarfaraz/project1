@@ -20,10 +20,12 @@ import random
 from django.utils import timezone
 from datetime import timedelta
 
-
 from django.template import Context
-
 from django.template.loader import get_template
+
+from django.contrib.auth import views as auth_views
+
+
 
 
 
@@ -245,3 +247,8 @@ def change_password(request):
     else:
         form = PasswordChangeForm(request.user)
         return render(request, 'user_management/change_password.html', {'form': form})
+    
+#def password_reset(request):
+#    template_response = auth_views.password_reset(request)
+#    # Do something with `template_response`
+#    return template_response    

@@ -8,6 +8,8 @@ from . import views
 from views import *
 
 
+from django.contrib.auth import views as auth_views
+
 app_name ="user_management"
 
 urlpatterns =   [
@@ -26,4 +28,9 @@ urlpatterns =   [
                 url(r'^delete_address/(?P<id>\d+)',delete_address,name='delete_address'),
                 url(r'^change_password/',change_password,name='change_password'),
                 url(r'^email_test/',email_test,name='email_test'),
+                url(r'^password_reset/$', auth_views.password_reset ,{'template_name':'user_management/password_reset.html','post_reset_redirect' : 'password_reset/done/'}, name='password_reset'),
+                url(r'^password_reset/done/$', auth_views.password_reset_done,{'template_name':'user_management/password_reset_done.html'}, name='password_reset_done'),
+                url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+                    auth_views.password_reset_confirm, name='password_reset_confirm'),
+                url(r'^reset/done/$', auth_views.password_reset_complete, {'template_name':'user_management/password_reset_complete.html'}, name='password_reset_complete'),
                 ]
