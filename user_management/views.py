@@ -248,7 +248,3 @@ def change_password(request):
         form = PasswordChangeForm(request.user)
         return render(request, 'user_management/change_password.html', {'form': form})
     
-#def password_reset(request):
-#    template_response = auth_views.password_reset(request)
-#    # Do something with `template_response`
-#    return template_response    
