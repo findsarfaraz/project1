@@ -24,8 +24,10 @@ SECRET_KEY = '450wwme2j=-^y+zygv(avio57#%x257iqy%@(a3+7m9zb3f&z8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
+if DEBUG:
+    ALLOWED_HOSTS = ['testarhamcollections.com']
+else:
+    ALLOWED_HOSTS =[]
 
 
 # Application definition
