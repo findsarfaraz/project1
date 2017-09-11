@@ -23,11 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '450wwme2j=-^y+zygv(avio57#%x257iqy%@(a3+7m9zb3f&z8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-if DEBUG:
-    ALLOWED_HOSTS = []
-else:
-    ALLOWED_HOSTS =['testarhamcollections.com']
+ALLOWED_HOSTS =['testarhamcollections.com',]
 
 
 # Application definition
@@ -151,11 +147,11 @@ AUTH_USER_MODEL = 'user_management.CustomUser'
 
 AUTHENTICATION_BACKENDS  = ('user_management.manager.CustomUserAuth',)
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'localhost'
-EMAIL_HOST_USER = 'registration@arhamcollections.com'
-EMAIL_HOST_PASSWORD = 'welcome@123'
-EMAIL_PORT = 25
-EMAIL_USE_TLS = False
-DEFAULT_FROM_EMAIL = 'registration@arhamcollections.com'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'localhost'
+# EMAIL_HOST_USER = 'registration@arhamcollections.com'
+# EMAIL_HOST_PASSWORD = 'welcome@123'
+# EMAIL_PORT = 25
+# EMAIL_USE_TLS = False
+# DEFAULT_FROM_EMAIL = 'registration@arhamcollections.com'
 
