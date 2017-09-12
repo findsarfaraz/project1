@@ -8,6 +8,8 @@ import datetime
 from datetime import timedelta
 
 from django.utils import timezone
+from django.utils.timezone import now
+
 
 tomorrow = timezone.now() + timedelta(days=1)
 current_time= timezone.now()
@@ -37,9 +39,9 @@ class CustomUserManager(BaseUserManager):
         return self._create_user(email,password,True,True,**extra_fields)
     
 class CustomUser(AbstractBaseUser,PermissionsMixin):
-    username =models.CharField(max_length =256, unique = True,blank = True,null= True)
+    username =models.CharField(max_length =255, unique = True,blank = True,null= True)
     email =models.EmailField(blank=False, unique =True)
-    date_joined  = models.DateTimeField(_('date joined'), default=current_time)
+    date_joined  = models.DateTimeField(_('date joined'), default=now)
     is_active    = models.BooleanField(default=True)
     is_admin     = models.BooleanField(default=False)
     is_staff     = models.BooleanField(default=False)
@@ -123,7 +125,4 @@ class UserAddress(models.Model):
 
     class Meta:
         verbose_name=u'User Address'
-        verbose_name_plural=u'User Addresses'
-
-    
-    
+        verbose_name_plural=u'User Addresses'          
