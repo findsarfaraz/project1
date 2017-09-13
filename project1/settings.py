@@ -10,7 +10,9 @@ For the full list of settings and their values,
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 print "test1 3"
+
 import os
+
 USE_TZ=True
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
@@ -24,8 +26,10 @@ print BASE_DIR
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '450wwme2j=-^y+zygv(avio57#%x257iqy%@(a3+7m9zb3f&z8'
+
 DEBUG=False
 # SECURITY WARNING: don't run with debug turned on in production!
+
 ALLOWED_HOSTS =['testarhamcollections.com','localhost:8000',]
 # Application definition
 
