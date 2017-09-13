@@ -27,10 +27,10 @@ print BASE_DIR
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '450wwme2j=-^y+zygv(avio57#%x257iqy%@(a3+7m9zb3f&z8'
 
-DEBUG=False
+DEBUG=True
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS =['testarhamcollections.com','localhost:8000',]
+ALLOWED_HOSTS =['*']
 # Application definition
 
 INSTALLED_APPS = [

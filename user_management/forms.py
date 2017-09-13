@@ -12,11 +12,10 @@ class CustomUserCreationForm(UserCreationForm):
     A form that creates a user, with no privileges, from the given email and
     password.
     """
-
     def __init__(self, *args, **kargs):
         super(CustomUserCreationForm, self).__init__(*args, **kargs)
         #del self.fields['username']
-    def clean(self):
+def clean(self):
         password1=self.cleaned_data.get('password1')
         password2=self.cleaned_data.get('password2')
         username=self.cleaned_data.get('email')
@@ -32,10 +31,10 @@ class CustomUserCreationForm(UserCreationForm):
             raise forms.ValidationError("Both password should be same")
         
     
-    class Meta:
-        model = CustomUser
-        #fields = "__all__"
-        fields = ("email",)
+        class Meta:
+            model = CustomUser
+            #fields = "__all__"
+            fields = ("email",)
         
 
 class CustomUserChangeForm(UserChangeForm):
