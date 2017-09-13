@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, 
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-print "test1 "
+print "test1 3"
 import os
 USE_TZ=True
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
