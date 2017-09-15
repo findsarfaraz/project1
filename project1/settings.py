@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, 
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-print " this is just to test jeninks"
+
 import os
 
 USE_TZ = True
