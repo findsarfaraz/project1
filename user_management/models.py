@@ -116,7 +116,7 @@ class UserAddress(models.Model):
     is_primary=models.BooleanField(default=False)
     creation_date=models.DateTimeField(auto_now_add=True,editable=False,blank=False,null=True)
     updation_date=models.DateTimeField(auto_now=True,editable=False,blank=False,null=True)
-    email=models.ForeignKey(UserProfile,default=0)
+    email=models.ForeignKey(UserProfile)
 
     
     def __str__(self):

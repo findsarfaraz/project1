@@ -9,16 +9,13 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, 
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-print "test1 3"
-
+print " this is just to test jeninks"
 import os
 
-USE_TZ=True
+USE_TZ = True
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-print BASE_DIR
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,10 +24,10 @@ print BASE_DIR
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '450wwme2j=-^y+zygv(avio57#%x257iqy%@(a3+7m9zb3f&z8'
 
-DEBUG=True
+DEBUG = False
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS =['*']
+ALLOWED_HOSTS = ['testarhamcollections.com', 'www.testarhamcollections.com','*',]
 # Application definition
 
 INSTALLED_APPS = [
@@ -78,22 +75,19 @@ TEMPLATES = [
 WSGI_APPLICATION = 'project1.wsgi.application'
 
 
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'test1',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'test3',
         'USER': 'root',
         'PASSWORD': 'welcome@123',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }
-
-
 
 
 # Password validation
@@ -113,8 +107,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
 
 
 # Internationalization
@@ -139,12 +131,12 @@ MEDIA_URL = '/media/'
 
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),'static_root')
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'media_root')
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_root')
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media_root')
 
 AUTH_USER_MODEL = 'user_management.CustomUser'
 
-AUTHENTICATION_BACKENDS  = ('user_management.manager.CustomUserAuth',)
+AUTHENTICATION_BACKENDS = ('user_management.manager.CustomUserAuth',)
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_HOST = 'localhost'
