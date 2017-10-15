@@ -138,10 +138,10 @@ AUTH_USER_MODEL = 'user_management.CustomUser'
 
 AUTHENTICATION_BACKENDS = ('user_management.manager.CustomUserAuth',)
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'localhost'
-# EMAIL_HOST_USER = 'registration@arhamcollections.com'
-# EMAIL_HOST_PASSWORD = 'welcome@123'
-# EMAIL_PORT = 25
-# EMAIL_USE_TLS = False
-# DEFAULT_FROM_EMAIL = 'registration@arhamcollections.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'arhamcollections.com'
+EMAIL_HOST_USER = 'registration@arhamcollections.com'
+EMAIL_HOST_PASSWORD = 'welcome@123'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+DEFAULT_FROM_EMAIL = 'registration@arhamcollections.com'
