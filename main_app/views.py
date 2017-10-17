@@ -6,6 +6,16 @@ from django.shortcuts import HttpResponse
 
 
 def index(request):
+    email = EmailMessage(
+    'Hello',
+    'Body goes here',
+    'registration@arhamcollections.com',
+    ['findsarfaraz@gmail.com'],
+    reply_to=['newtest@arhamcollections.com'],
+    headers={'Message-ID': 'foo'},
+    )
+    email.send()
+
     return render(request,'main_app/index.html',None)
 
 def aboutus(request):
