@@ -143,5 +143,12 @@ EMAIL_HOST = 'arhamcollections.com'
 EMAIL_HOST_USER = 'registration@arhamcollections.com'
 EMAIL_HOST_PASSWORD = 'welcome@123'
 EMAIL_PORT = 465
-EMAIL_USE_TLS = False
+EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'registration@arhamcollections.com'
+
+from django.core.mail import EmailMessage
+
+msg =EmailMessage('this is test','this is body',to=['findsarfaraz@gmail.com']
+
+msg.send()
+
