@@ -64,7 +64,7 @@ def signup(request):
         password=form.cleaned_data['password1']
         CustomUser.objects.create_user(email=email,password=password)
         user=CustomUser.objects.get(email=email)
-            user.is_active=0
+        user.is_active=0
         user.save()
         
         salt = hashlib.sha1(str(random.random())).hexdigest()[:5]            

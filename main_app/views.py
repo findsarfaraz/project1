@@ -5,11 +5,6 @@ from django.shortcuts import HttpResponse
 
 
 
-
-
-
-
-
 def index(request):
     return render(request,'main_app/index.html',None)
 
@@ -32,7 +27,6 @@ def blog(request):
     return render(request,'main_app/blog.html',None)
 
 def emailus(request):
-    # msg =EmailMessage(subject='test',body='test',from_email='registration@arhamcollections.com',to=['findsarfaraz@gmail.com'])    
     return render(request,'main_app/emailus.html',None)
 
 def callus(request):
