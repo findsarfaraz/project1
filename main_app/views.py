@@ -3,7 +3,7 @@ from django.template import loader
 # Create your views here.
 from django.shortcuts import HttpResponse
 
-from django.core.mail import EmailMessage
+
 
 
 
