@@ -143,7 +143,8 @@ EMAIL_HOST = 'arhamcollections.com'
 EMAIL_HOST_USER = 'registration@arhamcollections.com'
 EMAIL_HOST_PASSWORD = 'welcome@123'
 EMAIL_PORT = 465
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = 'registration@arhamcollections.com'
 
 
