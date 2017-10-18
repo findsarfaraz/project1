@@ -79,7 +79,7 @@ def signup(request):
         #link ="http://127.0.0.1:8000/signup_confirm/%s" % (activation_key)
         #link ="test"
         #name ="Friend"
-        c = Context({'link':link,'name': name})
+        #c = Context({'link':link,'name': name})
         
         
         #email_body = get_template('user_management/email.html').render(c)
