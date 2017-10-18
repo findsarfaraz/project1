@@ -77,17 +77,17 @@ def signup(request):
         
         up.save()
         #link ="http://127.0.0.1:8000/signup_confirm/%s" % (activation_key)
-        link ="test"
-        name ="Friend"
+        #link ="test"
+        #name ="Friend"
         c = Context({'link':link,'name': name})
         
         
-        email_body = get_template('user_management/email.html').render(c)
-        email_subject = 'Account confirmation'
-        msg=EmailMessage(email_subject, email_body, to=[email], from_email='registration@arhamcollections.com')
+        #email_body = get_template('user_management/email.html').render(c)
+        #email_subject = 'Account confirmation'
+        #msg=EmailMessage(email_subject, email_body, to=[email], from_email='registration@arhamcollections.com')
         # msg.content_subtype="html"
         
-        msg.send()
+        #msg.send()
         #send_mail(email_subject, email_body, ,[email], fail_silently=False)
         
         if user:
