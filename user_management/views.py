@@ -76,7 +76,8 @@ def signup(request):
                 key_expires=key_expires)
         
         up.save()
-        link ="http://127.0.0.1:8000/signup_confirm/%s" % (activation_key)
+        #link ="http://127.0.0.1:8000/signup_confirm/%s" % (activation_key)
+        link ="test"
         name ="Friend"
         c = Context({'link':link,'name': name})
         
