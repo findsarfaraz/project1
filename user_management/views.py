@@ -58,24 +58,29 @@ def logout(request):
 @csrf_protect 
 def signup(request):
     form= CustomUserCreationForm(request.POST or None)
+    print "step0"
     if request.POST and form.is_valid():
+        print "step1"
         form.save(commit=False)
         email=form.cleaned_data['email']
         password=form.cleaned_data['password1']
         CustomUser.objects.create_user(email=email,password=password)
         user=CustomUser.objects.get(email=email)
+        print "step2"
         user.is_active=0
+        print "step3"
         user.save()
         
         salt = hashlib.sha1(str(random.random())).hexdigest()[:5]            
         activation_key = hashlib.sha1(salt+email).hexdigest()            
         key_expires = timezone.datetime.today() + timedelta(days=2)
-        
+        print "step4"
         
         up=UserProfile(email_id=user.id,activation_key=activation_key, 
                 key_expires=key_expires)
-        
+        print "step5"
         up.save()
+        print "step6"
         #link ="http://127.0.0.1:8000/signup_confirm/%s" % (activation_key)
         #link ="test"
         #name ="Friend"
