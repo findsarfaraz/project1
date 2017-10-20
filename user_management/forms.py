@@ -2,10 +2,10 @@ from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
-from user_management.models import CustomUser,UserProfile,UserAddress
+from user_management.models import CustomUser,UserProfile,UserAddress,CustomUserManager
 from django.contrib import auth
 from django.contrib.auth import authenticate
-
+from django.contrib.auth import get_user_model
 
 class CustomUserCreationForm(UserCreationForm):
     """
@@ -15,27 +15,27 @@ class CustomUserCreationForm(UserCreationForm):
     def __init__(self, *args, **kargs):
         super(CustomUserCreationForm, self).__init__(*args, **kargs)
         #del self.fields['username']
-def clean(self):
-        password1=self.cleaned_data.get('password1')
-        password2=self.cleaned_data.get('password2')
-        username=self.cleaned_data.get('email')
-        print username
-        try:
-            user=CustomUser.objects.get(email=username)
-        except:
-            user=None
-        if user:
-            raise forms.ValidationError("Email address already registered with us")
-        
-        if password1!=password2:
-            raise forms.ValidationError("Both password should be same")
+    
+    def clean(self):
+            password1=self.cleaned_data.get('password1')
+            password2=self.cleaned_data.get('password2')
+            username=self.cleaned_data.get('email')
+            try:
+                user=CustomUser.objects.get(email=username)
+            except:
+                user=None
+            if user:
+                raise forms.ValidationError("Email address already registered with us")
+            
+            if password1!=password2:
+                raise forms.ValidationError("Both password should be same")
         
     
-        class Meta:
-            model = CustomUser
-            #fields = "__all__"
-            fields = ("email",)
-        
+    class Meta:
+        model = get_user_model()
+        #fields = "__all__"
+        fields = ("email",)
+    
 
 class CustomUserChangeForm(UserChangeForm):
     """A form for updating users. Includes all the fields on
@@ -49,7 +49,7 @@ class CustomUserChangeForm(UserChangeForm):
 
     
     class Meta:
-        model = CustomUser
+        model = get_user_model()
         fields = "__all__"
         
 
