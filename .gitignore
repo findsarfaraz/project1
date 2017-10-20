@@ -48,3 +48,4 @@ Temporary Items
 db.sqlite1
 *.sqlite2
 db.sqlite9
+*.pyc
