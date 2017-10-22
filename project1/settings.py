@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '450wwme2j=-^y+zygv(avio57#%x257iqy%@(a3+7m9zb3f&z8'
 
-DEBUG = False
+DEBUG = True
 # SECURITY WARNING: don't run with debug turned on in production!
 
 ALLOWED_HOSTS = ['testarhamcollections.com', 'www.testarhamcollections.com','*',]
@@ -147,4 +147,7 @@ EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = 'registration@arhamcollections.com'
 
+
+print STATICFILES_DIRS
+print STATIC_ROOT
 

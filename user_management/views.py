@@ -70,7 +70,7 @@ def signup(request):
         user.is_active=0
         
         user.save()
-        
+        print email
         salt = hashlib.sha1(str(random.random())).hexdigest()[:5]            
         activation_key = hashlib.sha1(salt+email).hexdigest()            
         key_expires = timezone.datetime.today() + timedelta(days=2)
@@ -80,11 +80,12 @@ def signup(request):
                 key_expires=key_expires)
         
         up.save()
+
         
         link ="http://testarhamcollection/signup_confirm/%s" % (activation_key)
-        
-        name ="Friend"
-        c = Context({'link':link,'name': name})
+        print link
+        name ="Dear Customer"
+        c = {'link':link,'name': name}
         
         
         email_body = get_template('user_management/email.html').render(c)
