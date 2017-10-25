@@ -4,7 +4,7 @@ from product_management.models import category,subcategory,product_master,produc
 
 
 # Register your models here.
-class CategoryAdmin(category)
+class CategoryAdmin(category):
 	fieldsets=fieldsets = [
         (None, {'fields': ('category_name')}),
         ]
