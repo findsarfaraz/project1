@@ -35,7 +35,7 @@ class CustomUserAdmin(UserAdmin):
 
 class UserProfileAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,               {'fields': ('email','first_name','last_name','gender','date_of_birth','activation_key','key_expires')}),
+        (None, {'fields': ('email','first_name','last_name','gender','date_of_birth','activation_key','key_expires')}),
         ]
     
     list_display = ('email', 'first_name','last_name')

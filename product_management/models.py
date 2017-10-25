@@ -35,8 +35,14 @@ class product_price_history(models.Model):
 	created_by = models.ForeignKey(CustomUser)
 
 
+class category(models.Model):
+	category_id= models.AutoField(primary_key=True)
+	category_name =models.CharField(max_length=512,null=False)
 
-
+class subcategory(models.Model):
+	subcategory_id= models.AutoField(primary_key=True)
+	subcategory_name =models.CharField(max_length=512,null=False)
+	category_id =models.ForeignKey(category)
 	
 
 
